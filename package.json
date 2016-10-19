@@ -1,0 +1,77 @@
+{
+  "name": "node-webapp-template",
+  "version": "0.0.1",
+  "description": "a basic node template for web apps that makes a few stack commitments",
+  "main": "server.js",
+  "scripts": {
+    "webpack": "webpack",
+    "start-prod": "better-npm-run start-prod",
+    "start-dev": "better-npm-run start-dev",
+    "webpackServer": "webpack-dev-server --hot --inline --port 8081",
+    "watchServer": "nodemon -e js,jsx,json -w server.js -w src/server -i src/client -x babel-node server",
+    "devServers": "parallelshell \"npm run webpackServer\" \"npm run watchServer\" ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "betterScripts": {
+    "start-prod": {
+      "command": "node ./bin/server.js",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 8080
+      }
+    },
+    "start-dev": {
+      "command": "nodemon -e js,jsx,json -w server.js -i src/client -x node ./bin/server.js",
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": 8080
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogovski/node-webapp-template.git"
+  },
+  "keywords": [
+    "node",
+    "starter",
+    "webapp",
+    "express",
+    "webpack",
+    "babel",
+    "nodemon"
+  ],
+  "author": "rogovski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rogovski/node-webapp-template/issues"
+  },
+  "homepage": "https://github.com/rogovski/node-webapp-template#readme",
+  "dependencies": {
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-plugin-transform-runtime": "^6.3.13",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.3.13",
+    "babel-runtime": "^6.3.19",
+    "ejs": "^2.5.1",
+    "express": "4.14.0",
+    "moment": "^2.15.1",
+    "node-uuid": "^1.4.7",
+    "opencv": "^6.0.0",
+    "sharp": "^0.16.0",
+    "socket.io-client": "^1.5.0"
+  },
+  "devDependencies": {
+    "better-npm-run": "0.0.11",
+    "chai": "^3.5.0",
+    "colors": "^1.1.2",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.8.1",
+    "parallelshell": "^2.0.0",
+    "webpack": "^1.12.6",
+    "webpack-dev-server": "^1.12.1"
+  }
+}
